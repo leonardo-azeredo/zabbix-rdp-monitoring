@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>6.0</version>
+    <date>2022-10-11T14:11:54Z</date>
+    <groups>
+        <group>
+            <uuid>846977d1dfed4968bc5f8bdb363285bc</uuid>
+            <name>Templates/Operating systems</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <uuid>3ca920e17d104d879cec4c40909d2cce</uuid>
+            <template>Sessoes RDP ativas</template>
+            <name>Sessoes RDP ativas</name>
+            <groups>
+                <group>
+                    <name>Templates/Operating systems</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>d938041e08574e708f597779cf533cad</uuid>
+                    <name>Número de sessões RDP</name>
+                    <key>perf_counter[\Terminal Services\Active Sessions]</key>
+                    <description>Número de Sessões ativas</description>
+                </item>
+                <item>
+                    <uuid>ce4dd434e3b54126bd2fdb3bbdd24497</uuid>
+                    <name>Usuários RDP Ativos</name>
+                    <key>rdp.terminal.server[ACTIVE]</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <triggers>
+                        <trigger>
+                            <uuid>01f118ec732a4cef8047c8c884005e97</uuid>
+                            <expression>change(/Sessoes RDP ativas/rdp.terminal.server[ACTIVE])=0</expression>
+                            <name>Novo acesso a VM</name>
+                            <priority>INFO</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>d79451b8b148472cafb1fc5174043b04</uuid>
+                    <name>Usuários RDP Inativos</name>
+                    <key>rdp.terminal.server[INACTIVE]</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <description>Que já logaram alguma vez na VM</description>
+                </item>
+            </items>
+            <tags>
+                <tag>
+                    <tag>RDP</tag>
+                    <value>RDP</value>
+                </tag>
+            </tags>
+        </template>
+    </templates>
+</zabbix_export>

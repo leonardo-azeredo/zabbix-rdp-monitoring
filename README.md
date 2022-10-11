@@ -18,7 +18,7 @@ Monitorando acessos RDP em máquinas Windows com Zabbix
 
 
 
-3° Passo: Crie um diretório e cole o script "rdp.terminal.server.ps1" Será necessário apontar o script powershell dentro do .conf do agent, faça isso colando a seguinte linha no .conf "UserParameter=rdp.terminal.server[*],powershell.exe -noprofile -executionpolicy bypass -File <CAMINHO DO ARQUIVO rdp.terminal.server.ps1>  $1".]
+3° Passo: Crie um diretório e cole o script "rdp.terminal.server.ps1" Será necessário apontar o script powershell dentro do .conf do agent, faça isso colando a seguinte linha no .conf "UserParameter=rdp.terminal.server[*],powershell.exe -noprofile -executionpolicy bypass -File <CAMINHO DO ARQUIVO rdp.terminal.server.ps1>  $1"
 
 
 4° Passo: Reinicie o Agent e importe o .xml "sessoes_RDP_ativas_by_leonardo-azerdo.xml" para o seu zabbix
